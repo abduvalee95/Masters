@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br>
+<body>
+  
+<form method="POST" class="row g-3" style="margin-left: 30% ;">
+  <div style="background-color:firebrick ;" >
+  {% csrf_token %}
+  
+  {{ form.name }} <br>
+  {{ form.last_name }} <br>
+  {{ form.date_of_birth }} <br>
+  {{ form.formation }} <br> 
+  {{ form.title }} <br>
+  {{ form.position }} <br>
+  {{ form.description }} <br>
+  {{ form.image }} <br>
+<hr>
+    <div class="col" style="margin-left: 30% ;">
+      <button type="submit" class="btn btn-primary">Зарегистрировать анкету</button>
+    </div>
+  </div>
+  </form>
+</body>
+
+  {% endblock %}

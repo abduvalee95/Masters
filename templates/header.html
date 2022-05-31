@@ -1,9 +1,26 @@
 {% load static %}
+<style>
+  .hello-msg{
+    font-size: 20px;
+    margin-left: 800px;
+    color: rgb(202, 175, 106);
+    font-weight: 600;
+  }
+</style>
+
 <nav class="navbar bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="{% url 'home' %}">
         <img  src="{% static '/images/Tesla_logo.png' %}" alt="logo" width="50" height="54" class="d-inline-block align-text ">
         Мастеры
       </a>
     </div>
+    {% if user.is_authenticated %}
+            <span class="hello-msg">Добро пожаловать {{ request.user }}</span>
+            <a href="{% url 'info' %}"> Заполните анкету что бы получит работу</a>
+            <span> <a href="{% url 'logout' %}"> Выйти  </a></span>
+    {% else %}
+            <span> <a href="{% url 'register' %}"> Зарегистрировать </a></span>
+    {% endif  %}
+
   </nav> 
